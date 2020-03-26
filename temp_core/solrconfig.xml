@@ -20,3 +20,37 @@
   </lst>
 </searchComponent>
 </config>
+
+
+
+8 9e configuration> 10 11 <property name="APP_ID" value="1BAAS"/> <property name="SUB_APP_ID" value="DevPortal"/> <property name="SPLUNK_HOME" value"/apps/tomcat/splunk
+
+12
+
+estatusListener class="ch.qos. Logback.core.status. NopStatusListener" />
+
+<i-cappender name="SPLUNK AMQP" class="com.wf.gateway.portal. logging. PortalAmqpAppender">--> cappender name="SPLUNK_AMOP" class="ch.gos. Logback.core.ConsoleAppender"> cfilter class="ch.gos. logback.core.filter.EvaluatorFilter"> ceva luator class="ch.qos. Logback.classic, boolex.OnMarkerEvaluator"
+
+marker>SPLUNK_ONLY</marker </evaluator> conMatch>ALLOW</onMatch> s/filter
+
+13 14 15 16 16 17e 18e 19 20 21 22 24 258 26 27 28 29
+
+33
+
+cencoder class="ch.qos. logback.core.encoder. LayoutWrappingEncoder"> <layout class="com.wellsfargo.gateway.portal.utils.logback.JSONLayout"> JSONFormatter class="com.wells fargo.gateway.portal.utils. Zogback.GsOn JSONFormatter" > <JSONLayout Enhancer class="com.wellsfargo.gateway.portal.utils. Logback.Portal JSONEnhancer"> <applicationId>${APPID}</applicationId> <sub Application Id>${SUB APP_ID}</sub Application Id> maxlength>9500</maxlength </JSONLayout Enhancer
+
+35
+
+<datePattern>yyyy-MM-dd'T'HH:mm:ss. SSSxxx</datePattern> </layout> <charset>UTF-8</charset> </encoder </appender>
+
+37 39 40 41 42
+
+<appender name="SPLUNK ASYNC" class="ch.qos. Logback.classic.AsyncAppender"> cappender-ref ref="SPLUNK AMOP" /> <discardingThreshold>@</discardingThreshold> </appender>
+
+43 44
+
+45
+
+46 47
+
+root level='INFO"> <appender-ref ref="SPLUNK ASYNC" /> </root> 48 </configuration>
